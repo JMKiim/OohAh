@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     --weight-regular: 400;
 
     /* Animation Duration */
+    --animation-duration: 300ms;
     --theme-duration: 500ms;
     --theme-animation: ease-out;
   }

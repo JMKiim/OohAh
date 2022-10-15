@@ -2,21 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { DetailNavBtn, FeedUpdateBtn, CommentBtn } from './buttonStyle';
 
-const Button = ({ btnType, children }) => {
+const Button = (props) => {
   //console.log(`btnType: ${btnType}`);
-  switch (btnType) {
+  switch (props.btnType) {
     case 'DetailNav':
       return (
         <Link to='/feeds'>
-          <DetailNavBtn>{children}</DetailNavBtn>
+          <DetailNavBtn>{props.children}</DetailNavBtn>
         </Link>
       );
     case 'FeedUpdate':
-      return <FeedUpdateBtn>{children}</FeedUpdateBtn>;
+      return <FeedUpdateBtn>{props.children}</FeedUpdateBtn>;
     case 'Comment':
-      return <CommentBtn>{children}</CommentBtn>;
+      return (
+        <CommentBtn disabled={props.disabled} onClick={props.onClick}>
+          {props.children}
+        </CommentBtn>
+      );
     default:
-      return <button>{children}</button>;
+      return <button>{props.children}</button>;
   }
 };
 

@@ -22,6 +22,7 @@ export const FeedBody = styled.article`
   background-color: white;
   border-radius: 20px;
   padding: 30px;
+  box-shadow: 10px 10px 16px -3px rgba(0, 0, 0, 0.61);
 `;
 
 export const FeedLine = styled.div`
