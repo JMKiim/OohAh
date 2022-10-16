@@ -1,9 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import feed from '../modules/feedSlice';
-import comments from '../modules/commentsSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import addFeed from "../modules/addFormSlice";
 
 const store = configureStore({
-  reducer: { feed, comments },
+  reducer: { addFeed, addFeed },
 });
 
 export default store;

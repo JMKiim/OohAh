@@ -1,12 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Detail from '../pages/detail';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Post from "../pages/Post";
+import Update from "../pages/Update";
+import Home from "../pages/Home";
+import List from "../pages/List";
+
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/feeds/:id' element={<Detail />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/list" element={<List />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/update" element={<Update />} />
       </Routes>
     </BrowserRouter>
   );

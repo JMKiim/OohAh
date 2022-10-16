@@ -8,10 +8,41 @@ export const DetailNavBtn = styled.button`
 `;
 
 export const FeedUpdateBtn = styled.button`
-  background-color: pink;
-  font-size: var(--font-small);
+  background-color: var(--color-pink);
+  font-size: var(--font-regular);
   padding: 5px 15px;
   border-radius: 10px;
+  transition: all var(--animation-duration) ease-in;
+  &:hover {
+    background-color: pink;
+    transform: scale(1.1);
+  }
+`;
+
+export const HomeNavBtn = styled.button`
+  background-color: var(--color-pink);
+  font-size: var(--font-regular);
+  color: var(--color-white);
+  padding: 5px 15px;
+  border-radius: 10px;
+  transition: all var(--animation-duration) ease-in;
+  &:hover {
+    background-color: pink;
+    transform: scale(1.1);
+  }
+`;
+
+export const FeedPostBtn = styled.button`
+  background-color: var(--color-pink);
+  font-size: var(--font-regular);
+  color: var(--color-white);
+  padding: 5px 15px;
+  border-radius: 10px;
+  transition: all var(--animation-duration) ease-in;
+  &:hover {
+    background-color: pink;
+    transform: scale(1.1);
+  }
 `;
 
 export const CommentBtn = styled.button`
