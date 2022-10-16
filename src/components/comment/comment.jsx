@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../button/button';
 import {
   CommentBox,
@@ -17,40 +17,20 @@ import { useDispatch } from 'react-redux';
 
 const Comment = ({ idOnUpdate, idHandler, comment }) => {
   const dispatch = useDispatch();
-  const [content, onChangeContentHandler] = useInput(comment.content);
-  const [dpContent, setDpContent] = useState(comment.content);
+  const [content, setContent, onChangeContentHandler] = useInput(
+    comment.content
+  );
 
   const isDisabled =
     idOnUpdate === 0 ? false : idOnUpdate === comment.id ? false : true;
   const onUpdate =
     idOnUpdate === 0 ? false : idOnUpdate === comment.id ? true : false;
 
-  const toggleOnUpdate = (arg) => {
-    idHandler(arg);
-  };
   const handleOnUpdateComment = () => {
     dispatch(__updateComment({ ...comment, content }));
-    setDpContent(content);
     idHandler(0);
   };
-  const handleOnDeleteComment = () => {
-    //console.log(`넘겨주는 comment.id : ${comment.id}`);
-    dispatch(__deleteComment(comment.id));
-  };
-  //   return (
-  //     <ContentSet>
-  //       <CommentUserName>{comment.username}</CommentUserName>
-  //       <CommentContent>{comment.content}</CommentContent>
-  //     </ContentSet>
-  //   );
-  // };
-  // const OnUpdateContentSet = () => {
-  //   return (
-  //     <ContentSet>
-  //       <CommentUpdateInput onChange={onChangeContentHandler} value={content} />
-  //     </ContentSet>
-  //   );
-  // };
+  const handleOnDeleteComment = () => dispatch(__deleteComment(comment.id));
 
   const NotOnUpdateBtnSet = () => {
     return (
@@ -58,7 +38,7 @@ const Comment = ({ idOnUpdate, idHandler, comment }) => {
         <Button
           disabled={isDisabled}
           btnType='Comment'
-          onClick={() => toggleOnUpdate(comment.id)}
+          onClick={() => idHandler(comment.id)}
         >
           <i className='fa-solid fa-wrench'></i>
         </Button>
@@ -79,7 +59,10 @@ const Comment = ({ idOnUpdate, idHandler, comment }) => {
         <Button
           disabled={isDisabled}
           btnType='Comment'
-          onClick={() => toggleOnUpdate(0)}
+          onClick={() => {
+            idHandler(0);
+            setContent(comment.content);
+          }}
         >
           <i className='fa-solid fa-ban'></i>
         </Button>
@@ -105,7 +88,7 @@ const Comment = ({ idOnUpdate, idHandler, comment }) => {
         ) : (
           <>
             <CommentUserName>{comment.username}</CommentUserName>
-            <CommentContent>{dpContent}</CommentContent>
+            <CommentContent>{comment.content}</CommentContent>
           </>
         )}
       </ContentSet>

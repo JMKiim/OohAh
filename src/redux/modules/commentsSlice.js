@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+//import axios from 'axios';
 import instance from '../../shared/request';
 
 const initialState = {
@@ -40,7 +40,7 @@ export const __updateComment = createAsyncThunk(
 );
 
 export const __deleteComment = createAsyncThunk(
-  'UPDATE_COMMENT',
+  'DELETE_COMMENT',
   async (arg, thunkAPI) => {
     try {
       await instance.delete(`/comments/${arg}`);
@@ -69,14 +69,20 @@ export const commentsSlice = createSlice({
       state.commentsByFeedId.error = action.payload;
     },
     // 댓글 수정하기
-    [__updateComment.pending]: (state) => {},
+    [__updateComment.pending]: (state) => {
+      state.commentsByFeedId.isLoading = true;
+    },
     [__updateComment.fulfilled]: (state, action) => {
+      state.commentsByFeedId.isLoading = false;
       const targetIndex = state.commentsByFeedId.data.findIndex(
         (comment) => comment.id === action.payload.id
       );
       state.commentsByFeedId.data.splice(targetIndex, 1, action.payload);
     },
-    [__updateComment.rejected]: (state) => {},
+    [__updateComment.rejected]: (state, action) => {
+      state.commentsByFeedId.isLoading = false;
+      state.commentsByFeedId.error = action.payload;
+    },
     // 댓글 삭제하기
     [__deleteComment.pending]: (state) => {
       state.commentsByFeedId.isLoading = true;
