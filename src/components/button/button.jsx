@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DetailNavBtn, FeedUpdateBtn, CommentBtn,FeedPostBtn,HomeNavBtn } from './buttonStyle';
+import { DetailNavBtn, FeedUpdateBtn, CommentBtn, PrevBtn, FeedDelete } from './buttonStyle';
 
 const Button = (props) => {
+  //console.log(`btnType: ${btnType}`);
   switch (props.btnType) {
     case 'DetailNav':
       return (
@@ -11,33 +12,21 @@ const Button = (props) => {
         </Link>
       );
     case 'FeedUpdate':
-      return (
-        <Link to ='/update'>
-          <FeedUpdateBtn>{props.children}</FeedUpdateBtn>
-        </Link>
-        );
+      return <FeedUpdateBtn>{props.children}</FeedUpdateBtn>;
     case 'Comment':
       return (
         <CommentBtn disabled={props.disabled} onClick={props.onClick}>
           {props.children}
         </CommentBtn>
-        );
-    case 'FeedPost':
+      );
+    case 'PrevBtn':
       return (
-          <FeedPostBtn>{props.children}</FeedPostBtn>
-        );
-    case 'HomeNav':
-      return (
-        <Link to ='/'>
-          <HomeNavBtn>{props.children}</HomeNavBtn>
+        <Link to='/'>
+          <PrevBtn>{props.children}</PrevBtn>
         </Link>
-        );
-    case 'FeedsNav':
-      return (
-       <Link to ='/feeds/:id'>
-         <FeedPostBtn>{props.children}</FeedPostBtn>
-       </Link>
-       );
+      );
+    case 'FeedDelete':
+      return <FeedDelete onClick={props.onClick}>{props.children}</FeedDelete>;
     default:
       return <button>{props.children}</button>;
   }
