@@ -10,7 +10,6 @@ const initialState = {
 export const __getFeeds = createAsyncThunk(
   "GET_FEEDS",
   async (payload, thunkAPI) => {
-    console.log(payload)
     try {
       const { data } = await instance.get("/feeds")
       return thunkAPI.fulfillWithValue(data)
