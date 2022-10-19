@@ -21,19 +21,14 @@ const FeedUpdateForm = () => {
   }, []);
 
   const ViewUpdate = useSelector((state) => state.post.feed);
-  const ViewLoading = useSelector((state) => state.post.isLoading);
-  //console.log(ViewUpdate.title);
-  //console.log(ViewUpdate.body);
-  console.log(ViewUpdate)
 
   const param = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const [title, setTitle, onChangeTitleHandler] = useInput(ViewUpdate.title);
   const [body, setBody, onChangeBodyHandler] = useInput(ViewUpdate.body);
   const [feed, setFeed] = useState([]);
-
  
   const onSubmitHandler = (event)=> {
     event.preventDefault();
@@ -50,8 +45,6 @@ const FeedUpdateForm = () => {
     setFeed(null);
     navigate(`/detail/:${param.id}`)
   }
-
-  if (ViewLoading) return
 
   return (
     <PostSection>

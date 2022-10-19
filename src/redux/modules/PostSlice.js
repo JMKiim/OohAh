@@ -29,10 +29,8 @@ export const __postFeed = createAsyncThunk(
 export const __updateFeed = createAsyncThunk(
   "post/updatePost",
   async (payload, thunkAPI) => {
-    console.log(payload);
     try {
       const data2 = await instance.patch(`/feeds/${payload.id}`, payload);
-      console.log(data2.data);
       return thunkAPI.fulfillWithValue(data2.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -45,7 +43,6 @@ export const __updateViewFeed = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const data3 = await instance.get(`/feeds/${payload.id}`, payload);
-      console.log(data3.data);
       return thunkAPI.fulfillWithValue(data3.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -90,7 +87,6 @@ const PostSlice = createSlice({
     [__updateViewFeed.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.feed = action.payload;
-      console.log(state.feeds);
     },
     [__updateViewFeed.rejected]: (state, action) => {
       state.isLoading = false;
