@@ -31,3 +31,30 @@ export const TextType = styled.p`
   font-weight: bold;
   font-size: 25px;
 `
+
+export const PageUl = styled.ul`
+  list-style: none;
+  text-align: center;
+  border-radius: 3px;
+  color: white;
+`
+export const PageLi = styled.li`
+  display: inline-block;
+  color:red;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 100%;
+  padding: 10px 20px;
+  margin-right:10px;
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #bb5eb6;
+  }
+`
+export const PageSpan = styled.span`
+  &:hover{
+    border-radius: 100%;
+    color: white;
+  }
+`

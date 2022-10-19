@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DetailNavBtn, FeedUpdateBtn, CommentBtn, PrevBtn, FeedDelete } from './buttonStyle';
+import { DetailNavBtn, FeedUpdateBtn, CommentBtn, PrevBtn, WriteBtn, FeedDelete } from './buttonStyle';
 
 const Button = (props) => {
   //console.log(`btnType: ${btnType}`);
@@ -23,6 +23,12 @@ const Button = (props) => {
       return (
         <Link to='/'>
           <PrevBtn>{props.children}</PrevBtn>
+        </Link>
+      );
+    case 'WriteBtn':
+      return (
+        <Link to='/add'>
+          <WriteBtn>{props.children}</WriteBtn>
         </Link>
       );
     case 'FeedDelete':

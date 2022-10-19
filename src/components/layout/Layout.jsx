@@ -2,13 +2,12 @@ import React from 'react'
 import Header from '../header/Header'
 import { LayoutBody } from './LayoutStyle'
 
-
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Header />
       <LayoutBody>
-        {props.children}
+        {children}
       </LayoutBody>
     </>
 

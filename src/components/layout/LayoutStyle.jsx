@@ -4,5 +4,5 @@ export const LayoutBody = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 10px;
 `
