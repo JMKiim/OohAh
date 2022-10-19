@@ -15,10 +15,8 @@ const initialState = {
 export const __getFeed = createAsyncThunk('GET_FEED', async (arg, thunkAPI) => {
   try {
     const { data } = await instance.get(`/feeds/${arg}`);
-    console.log('getFeed fulfilled!');
     return thunkAPI.fulfillWithValue(data);
   } catch (error) {
-    console.log('getFeed rejected!');
     return thunkAPI.rejectWithValue(error.code);
   }
 });

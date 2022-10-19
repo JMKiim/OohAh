@@ -30,7 +30,10 @@ const Comment = ({ idOnUpdate, idHandler, comment }) => {
     dispatch(__updateComment({ ...comment, content }));
     idHandler(0);
   };
-  const handleOnDeleteComment = () => dispatch(__deleteComment(comment.id));
+  const handleOnDeleteComment = () => {
+    const input = window.confirm('댓글을 삭제하시겠습니까?');
+    if (input) dispatch(__deleteComment(comment.id));
+  };
 
   const NotOnUpdateBtnSet = () => {
     return (

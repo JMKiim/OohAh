@@ -7,6 +7,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/feeds/:id' element={<Detail />} />
+        {/* <Route path='*' element={}/> */}
       </Routes>
     </BrowserRouter>
   );

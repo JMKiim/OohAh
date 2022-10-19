@@ -4,7 +4,6 @@ import FeedDetail from '../components/feedDetail/feedDetail';
 
 const Detail = () => {
   const { id } = useParams();
-
   return <FeedDetail id={id} />;
 };
 

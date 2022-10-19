@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DetailNavBtn, FeedUpdateBtn, CommentBtn } from './buttonStyle';
+import {
+  DetailNavBtn,
+  FeedUpdateBtn,
+  CommentBtn,
+  CommentSubmitBtn,
+} from './buttonStyle';
 
 const Button = (props) => {
-  //console.log(`btnType: ${btnType}`);
   switch (props.btnType) {
     case 'DetailNav':
       return (
@@ -13,6 +17,12 @@ const Button = (props) => {
       );
     case 'FeedUpdate':
       return <FeedUpdateBtn>{props.children}</FeedUpdateBtn>;
+    case 'CommentSubmit':
+      return (
+        <CommentSubmitBtn disabled={props.disabled}>
+          {props.children}
+        </CommentSubmitBtn>
+      );
     case 'Comment':
       return (
         <CommentBtn disabled={props.disabled} onClick={props.onClick}>

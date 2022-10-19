@@ -43,3 +43,16 @@ export const CommentBtn = styled.button`
     transform: scale(1);
   }
 `;
+
+export const CommentSubmitBtn = styled.button`
+  background-color: var(--color-dark-pink);
+  border-radius: 10px;
+  font-size: var(--font-small);
+  font-weight: var(--weight-bold);
+  padding: 4px 15px;
+  transition: all var(--animation-duration) ease-in;
+  &:disabled {
+    background-color: var(--color-grey);
+    cursor: default;
+  }
+`;
