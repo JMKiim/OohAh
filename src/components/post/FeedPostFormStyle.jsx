@@ -24,6 +24,15 @@ export const PostText = styled.textarea`
   background-color: #d3d3d3;  
 `;
 
+export const PostText2 = styled.textarea`
+  width: 100%;
+  height: 220px;
+  border: 1px solid #eee;
+  padding: 12px;
+  font-size: 14px;
+  background-color: #d3d3d3;  
+`;
+
 export const PostInput = styled.input`
   box-sizing: border-box;
   height: 46px;

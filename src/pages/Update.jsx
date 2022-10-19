@@ -1,5 +1,5 @@
 import React from "react";
-import FeedUpdateForm from "../components/update/FeedUpdateForm"
+import FeedUpdateForm from "../components/update/FeedUpdateForm";
 
 
 function Update() {

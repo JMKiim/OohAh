@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DetailNavBtn, FeedUpdateBtn, CommentBtn,FeedPostBtn,HomeNavBtn } from './buttonStyle';
+import { DetailNavBtn, FeedUpdateBtn, CommentBtn,FeedPostBtn,HomeNavBtn,ListGo } from './buttonStyle';
 
 const Button = (props) => {
   switch (props.btnType) {
     case 'DetailNav':
       return (
-        <Link to='/feeds'>
+        <Link to='/list'>
           <DetailNavBtn>{props.children}</DetailNavBtn>
         </Link>
       );
@@ -32,12 +32,12 @@ const Button = (props) => {
           <HomeNavBtn>{props.children}</HomeNavBtn>
         </Link>
         );
-    case 'FeedsNav':
+    case 'ListGo':
       return (
-       <Link to ='/feeds/:id'>
-         <FeedPostBtn>{props.children}</FeedPostBtn>
-       </Link>
-       );
+        <Link to ='/List'>
+          <ListGo>{props.children}</ListGo>
+        </Link>
+        );
     default:
       return <button>{props.children}</button>;
   }

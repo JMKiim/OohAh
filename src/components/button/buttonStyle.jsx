@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DetailNavBtn = styled.button`
-  background-color: white;
+  background-color: whitesmoke;
   font-size: var(--font-medium);
   padding: 10px 30px;
   border-radius: 30px;
@@ -33,6 +33,19 @@ export const HomeNavBtn = styled.button`
 `;
 
 export const FeedPostBtn = styled.button`
+  background-color: var(--color-pink);
+  font-size: var(--font-regular);
+  color: var(--color-white);
+  padding: 5px 15px;
+  border-radius: 10px;
+  transition: all var(--animation-duration) ease-in;
+  &:hover {
+    background-color: pink;
+    transform: scale(1.1);
+  }
+`;
+
+export const ListGo = styled.button`
   background-color: var(--color-pink);
   font-size: var(--font-regular);
   color: var(--color-white);

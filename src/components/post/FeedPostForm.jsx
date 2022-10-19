@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { __postFeed } from "../../redux/modules/PostSlice";
 import useInput from "../../hooks/useInput";
 import Button from "../button/button"
 import axios from "axios";
@@ -13,11 +15,11 @@ import {
 } from './FeedPostFormStyle';
 
 const FeedPostForm = () => {
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [title, onChangeTitleHandler] = useInput();
-  const [body, onChangeBodyHandler] = useInput();
-  const [useName, onChangeUserNameHandler] = useInput();
+  const [title, setTitle, onChangeTitleHandler] = useInput("");
+  const [body, setBody, onChangeBodyHandler] = useInput("");
+  const [useName, setUseName, onChangeUserNameHandler] = useInput("");
 
   const initialState = {
     id: 0,
@@ -30,14 +32,19 @@ const FeedPostForm = () => {
 
   const onSubmitHandler = (event)=> {
     event.preventDefault();
-    if (
-      useName.trim() === "" ||
-      title.trim() === "" ||
-      body.trim() === ""
-    ) {
-      return alert("모든 항목을 입력해 주세요!")
+    if (useName.trim() === "") {
+      alert("개그를 입력해 주세요!");
+      return
     }
-    axios.post("http://localhost:3001/feeds", {...feed, useName:useName,body:body,title:title});
+    if (title.trim() === "") {
+      alert("개그를 입력해 주세요!");
+      return
+    }
+    if (body.trim() === "") {
+      alert("설명을 입력해 주세요!");
+      return 
+    }
+    dispatch(__postFeed({...feed, useName:useName, body:body, title:title}));
     setFeed(initialState);
     navigate('/List')
   }
