@@ -5,6 +5,9 @@ import {
   FeedUpdateBtn,
   CommentBtn,
   CommentSubmitBtn,
+  PrevBtn,
+  WriteBtn,
+  FeedDelete,
 } from './buttonStyle';
 
 const Button = (props) => {
@@ -29,6 +32,20 @@ const Button = (props) => {
           {props.children}
         </CommentBtn>
       );
+    case 'PrevBtn':
+      return (
+        <Link to='/'>
+          <PrevBtn>{props.children}</PrevBtn>
+        </Link>
+      );
+    case 'WriteBtn':
+      return (
+        <Link to='/add'>
+          <WriteBtn>{props.children}</WriteBtn>
+        </Link>
+      );
+    case 'FeedDelete':
+      return <FeedDelete onClick={props.onClick}>{props.children}</FeedDelete>;
     default:
       return <button>{props.children}</button>;
   }

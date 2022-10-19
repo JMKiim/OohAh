@@ -56,3 +56,48 @@ export const CommentSubmitBtn = styled.button`
     cursor: default;
   }
 `;
+
+export const PrevBtn = styled.button`
+  background-color: white;
+  font-size: var(--font-medium);
+  padding: 15px 35px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #bb5eb6;
+    transform: scale(1.1);
+    font-weight: bold;
+    color: white;
+  }
+`;
+
+export const WriteBtn = styled.button`
+  background-color: white;
+  font-size: var(--font-medium);
+  padding: 15px 35px;
+  margin-right: 15px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #bb5eb6;
+    transform: scale(1.1);
+    font-weight: bold;
+    color: white;
+  }
+`;
+
+export const FeedDelete = styled.button`
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #bb5eb6;
+    transform: scale(1.1);
+    color: white;
+  }
+`;
