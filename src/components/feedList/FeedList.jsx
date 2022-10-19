@@ -25,21 +25,6 @@ const FeedList = () => {
     dispatch(__getFeeds());
   }, [dispatch])
 
-
-  // useEffect는 파라메터를 2개 받는다.
-  // 첫번째는 수행될 함수, 두번째는 상태
-  // 동작은, 두번째 요소 상태변수가 변경되면, 함수가 호출된다.
-  // history는 페이지 이동정보를 갖고있다.
-  // history가 변경되면, 아래 함수가 호출될텐데,
-  // 이 동작이 dispatch(__getFeeds()) 용으로 사용할 수 있는지 점검해보자.
-  // useEffect(() => {
-  //   console.log(window.history)
-  // }, [window.history])
-
-
-  // const indexOfLast = currentPage * postsPerPage
-
-  // pageNumbers는 화면에 출력할 페이지 번호을 저장
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(feeds.length / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -83,7 +68,6 @@ const FeedList = () => {
           <PageUl>
             {pageNumbers.map((number) => (
               <PageLi key={number} onClick={() => setCurrentPage(number)}>
-                {/* setCurrentPage가 호출되면 화면이 렌더링됨 */}
                 <PageSpan>
                   {number}
                 </PageSpan>
