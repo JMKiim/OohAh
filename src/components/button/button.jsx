@@ -8,6 +8,9 @@ import {
   PrevBtn,
   WriteBtn,
   FeedDelete,
+  FeedPostBtn,
+  HomeNavBtn,
+  ListGo,
 } from './buttonStyle';
 
 const Button = (props) => {
@@ -40,12 +43,22 @@ const Button = (props) => {
       );
     case 'WriteBtn':
       return (
-        <Link to='/add'>
+        <Link to='/post'>
           <WriteBtn>{props.children}</WriteBtn>
         </Link>
       );
     case 'FeedDelete':
       return <FeedDelete onClick={props.onClick}>{props.children}</FeedDelete>;
+    case 'FeedPost':
+      return <FeedPostBtn>{props.children}</FeedPostBtn>;
+    case 'HomeNav':
+      return (
+        <Link to='/'>
+          <HomeNavBtn>{props.children}</HomeNavBtn>
+        </Link>
+      );
+    case 'ListGo':
+      return <ListGo>{props.children}</ListGo>;
     default:
       return <button>{props.children}</button>;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { __getFeed } from '../../redux/modules/feedSlice';
 
 import Button from '../button/button';
@@ -40,7 +40,9 @@ const FeedDetail = ({ id }) => {
       <FeedBody>
         <FeedLine>
           <FeedUserName>작성자 : {TargetFeed.username}</FeedUserName>
-          <Button btnType='FeedUpdate'>수정하기</Button>
+          <Link to={`/update/${id}`}>
+            <Button btnType='FeedUpdate'>수정하기</Button>
+          </Link>
         </FeedLine>
         <FeedContent>{TargetFeed.body}</FeedContent>
         <CommentList feedId={id} />
